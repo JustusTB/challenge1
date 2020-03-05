@@ -3,10 +3,84 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Dashboard spaceX</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 </head>
 <body>
-	<h1>jaaboys</h1>
+  <header>
+    <figure>
+      <img src="images/logo.png">
+    </figure>
+  </header>
+  <section>
+    <div class="chart">
+      <canvas id="chart"></canvas>
+    </div>
+    <div class="chart">
+      <canvas id="disChart"></canvas>
+    </div>
+    <div class="chart">
+      <canvas id="supChart"></canvas>
+    </div>
+  </section>
+  <script type="text/javascript">
+    var data = Math.floor(Math.random() * 20) + 27997;
+    let chart = document.getElementById('chart').getContext('2d');
+    let speChart = new Chart(chart, {
+      type:'horizontalBar', 
+      data:{
+        labels:[''],
+        datasets:[{
+          label:'snelheid in km/h',
+          data:[
+            data
+          ],
+          backgroundColor:[
+            'red'
+          ],
+        }]
+      },
+    });
+      let chart2 = document.getElementById('disChart').getContext('2d');
+
+      let disChart = new Chart(chart2, {
+        type:'line',
+        data:{
+          labels:['', '3 maanden','6 maanden', '9 maanden'],
+          datasets:[{
+            label:'afstand afgelegd in miljoenen km',
+            data:[
+              0, 15, 33
+            ],
+            backgroundColor:[
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(255, 206, 86, 0.6)',
+            ],
+          }]
+        },
+      });
+      let chart3 = document.getElementById('supChart').getContext('2d');
+
+      let supChart = new Chart(chart3, {
+        type:'bar', 
+        data:{
+          labels:['eten', 'water', 'brandstof'],
+          datasets:[{
+            label:'vooraad in liters',
+            data:[
+              7000, 6900, 8200
+            ],
+            backgroundColor:[
+              'green',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(255, 206, 86, 0.6)'
+            ],
+          }]
+        },
+
+      });
+  </script>
 </body>
 </html>
